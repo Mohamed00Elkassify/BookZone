@@ -1,1 +1,27 @@
 {% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        {% for book in books %}
+        <div style="margin-left:-16px; margin-bottom: 90px;">
+            <div class="d-flex align-items-start">
+                <img src="{{ book.cover_image.url }}" class="img-fluid  mx-3 shadow" alt="{{ book.title }} cover" width="250" >               
+                    <div>
+                        <h5 class="card-title" style="font-size: 1.75rem; margin-bottom: 0.5rem;">{{ book.title }}</h5> <!-- Larger font size and spacing -->
+                        <h6 class="card-subtitle mb-2 text-muted" style="font-size: 1.5rem; margin-bottom: 0.5rem;">by {{ book.author }}</h6> <!-- Larger font size -->
+                        <p class="card-text" style="font-size: 1.25rem; margin-bottom: 1rem;">{{ book.description }}</p> <!-- Larger font size -->
+                        <div>
+                            <a href="" class="btn btn-success">Read</a> 
+                            <a href="" class="btn btn-primary">Bookmark</a>
+                            {% if book.pdf_link %}
+                            <a href="" class="btn btn-dark">Download Book</a>
+                            {% endif %}
+                        </div>
+                    </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
