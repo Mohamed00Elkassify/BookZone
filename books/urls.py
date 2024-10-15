@@ -7,5 +7,5 @@ urlpatterns = [
     path('bookmark/<int:book_id>', views.bookmark_book, name='bookmark_book'),
     path('bookmarked/', views.bookmarked_books, name='bookmarked_books'),
     path('remove/<int:book_id>', views.remove_bookmark, name='remove_bookmark'),
-    #path('', views.download_book, name='download_book'),
+    path('download/<int:book_id>', views.download_book, name='download_book'),
 ]

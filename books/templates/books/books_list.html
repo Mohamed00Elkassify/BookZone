@@ -6,19 +6,19 @@
         {% for book in books %}
         <div style="margin-left:-16px; margin-bottom: 90px;">
             <div class="d-flex align-items-start">
-                <img src="{{ book.cover_image.url }}" class="img-fluid  mx-3 shadow" alt="{{ book.title }} cover" width="250" >               
+                <img src="{{ book.cover_image.url }}" class="img-fluid  mx-3 shadow" alt="{{ book.title }} cover" width="250" >
                     <div>
-                        <h5 class="card-title" style="font-size: 1.75rem; margin-bottom: 0.5rem;">{{ book.title }}</h5> <!-- Larger font size and spacing -->
-                        <h6 class="card-subtitle mb-2 text-muted" style="font-size: 1.5rem; margin-bottom: 0.5rem;">by {{ book.author }}</h6> <!-- Larger font size -->
-                        <p class="card-text" style="font-size: 1.25rem; margin-bottom: 1rem;">{{ book.description }}</p> <!-- Larger font size -->
+                        <h5 class="card-title" style="font-size: 1.75rem; margin-bottom: 0.5rem; color:rgb(47, 142, 183) ;">{{ book.title }}</h5> 
+                        <h6 class="card-subtitle mb-2 " style="font-size: 1.5rem; margin-bottom: 0.5rem; color: rgba(255, 255, 255, 0.671);">by {{ book.author }}</h6> 
+                        <p class="card-text" style="font-size: 1.25rem; margin-bottom: 1rem; color:rgba(70, 200, 255, 0.927)">{{ book.description }}</p> 
                         <div>
                             <a href="{% url 'read_book' book.id %}" class="btn btn-success">Read</a> 
                             {% if book.bookmarked %}
                                 <button class="btn btn-secondary" disabled>Bookmarked</button>
                             {% else %}
-                                <a href="{% url 'bookmark_book' book.id %}" class="btn btn-primary">Bookmark</a>
+                                <a href="{% url 'bookmark_book' book.id %}" class="btn btn-light">Bookmark</a>
                             {% endif %}
-                            <a href="" class="btn btn-dark">Download Book</a>
+                            <a href="{% url 'download_book' book.id %}" class="btn btn-dark">Download Book</a>
                         </div>
                     </div>
             </div>
