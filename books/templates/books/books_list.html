@@ -12,11 +12,13 @@
                         <h6 class="card-subtitle mb-2 text-muted" style="font-size: 1.5rem; margin-bottom: 0.5rem;">by {{ book.author }}</h6> <!-- Larger font size -->
                         <p class="card-text" style="font-size: 1.25rem; margin-bottom: 1rem;">{{ book.description }}</p> <!-- Larger font size -->
                         <div>
-                            <a href="" class="btn btn-success">Read</a> 
-                            <a href="" class="btn btn-primary">Bookmark</a>
-                            {% if book.pdf_link %}
-                            <a href="" class="btn btn-dark">Download Book</a>
+                            <a href="{% url 'read_book' book.id %}" class="btn btn-success">Read</a> 
+                            {% if book.bookmarked %}
+                                <button class="btn btn-secondary" disabled>Bookmarked</button>
+                            {% else %}
+                                <a href="{% url 'bookmark_book' book.id %}" class="btn btn-primary">Bookmark</a>
                             {% endif %}
+                            <a href="" class="btn btn-dark">Download Book</a>
                         </div>
                     </div>
             </div>
